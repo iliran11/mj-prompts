@@ -1,5 +1,6 @@
 [
   {
+    "slug": "inftants-animals",
     "title": "Infants animals",
     "parts": [
       "joyful and happy",
@@ -14,26 +15,32 @@
       "--c",
       "${chaos}"
     ],
-    "variants": {
-      "animal": [
-        "Chimpanzee infant",
-        "Baby sloth",
-        "Baby giraffe",
-        "Koala joey",
-        "Piglet",
-        "Calf",
-        "Duckling",
-        "Baby elephant",
-        "Baby lion cub",
-        "Newborn kangaroo (joey)",
-        "Baby goat (kid)",
-        "Cygnet (baby swan)",
-        "Baby alpaca"
-      ],
-      "color1": ["blue", "scarlet", "oatmeal"],
-      "color2": ["Green and orange", "sage and blush", "lavender and Gray"],
-      "ar": ["4:7"],
-      "chaos": [0, 50]
-    }
+    "variants": [
+      {
+        "key": "animal",
+        "values": [
+          "Chimpanzee infant",
+          "Baby sloth",
+          "Baby giraffe",
+          "Koala joey",
+          "Piglet",
+          "Calf",
+          "Duckling",
+          "Baby elephant",
+          "Baby lion cub",
+          "Newborn kangaroo (joey)",
+          "Baby goat (kid)",
+          "Cygnet (baby swan)",
+          "Baby alpaca"
+        ]
+      },
+      { "key": "color1", "values": ["blue", "scarlet", "oatmeal"] },
+      {
+        "key": "color2",
+        "values": ["Green and orange", "sage and blush", "lavender and Gray"]
+      },
+      { "key": "ar", "values": ["4:7"] },
+      { "key": "chaos", "values": [0, 50] }
+    ]
   }
 ]
