@@ -6,7 +6,7 @@ const getPrompts = (matrix) => {
   return combinations.map((comb) => {
     let prompt = basePrompt;
     comb.forEach((variation) => {
-      const placeholder = `\$\{${variation.key}\}`;
+      const placeholder = `$\{${variation.key}}`;
       prompt = prompt.replace(placeholder, variation.value);
     });
     return prompt

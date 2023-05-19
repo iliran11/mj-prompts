@@ -4,7 +4,7 @@ const Idea = (props) => {
   const copy = (variants) => {
     let result = props.basePrompt;
     variants.forEach((v) => {
-      result = result.replace(`$${v.key}`, v.value);
+      result = result.replace(`$\{${v.key}}`, v.value);
     });
     navigator.clipboard.writeText(result);
   };
