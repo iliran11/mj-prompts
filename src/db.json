@@ -4,16 +4,16 @@
     "title": "Infants animals",
     "parts": [
       "joyful and happy",
-      "${animal}",
+      "$animal",
       "with big baby eyes, in the style of realistic and hyper-detailed renderings,",
-      "${color1}",
+      "$color1",
       "decorative relief, eiko ojala, dreamy and romantic compositions",
       "tang yau hoong,",
-      "${color2}",
+      "$color2",
       "--ar",
-      "${ar}",
+      "$ar",
       "--c",
-      "${chaos}"
+      "$chaos"
     ],
     "variants": [
       {

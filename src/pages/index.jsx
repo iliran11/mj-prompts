@@ -1,23 +1,20 @@
 import React from "react";
 import db from "../db.json";
-import promptGenerator from "../promptGenerator";
+import { getCombinations } from "../promptGenerator/utils";
+import Idea from "./idea";
 
 export default function Home(props) {
-  console.log(props);
   return (
     <div>
       <h1>Ideas</h1>
-      {props.ideas.map((x) => {
+      {props.ideas.map((idea) => {
         return (
-          <div key={x.title}>
-            <h2>{props.title}</h2>
-            <h3>{props.basePrompt}</h3>
-            <ul>
-              {x.combinations.map((x) => {
-                return <li key={x}>{x}ff</li>;
-              })}
-            </ul>
-          </div>
+          <Idea
+            key={idea.slug}
+            combinations={idea.combinations}
+            slug={idea.slug}
+            basePrompt={idea.basePrompt}
+          />
         );
       })}
     </div>
@@ -28,7 +25,7 @@ export async function getServerSideProps() {
   const ideas = db.map((x) => {
     return {
       title: x.title,
-      combinations: promptGenerator(x),
+      combinations: getCombinations(x.variants),
       basePrompt: x.parts.join(" "),
     };
   });
