@@ -39,7 +39,7 @@
         "key": "color2",
         "values": ["Green and orange", "sage and blush", "lavender and Gray"]
       },
-      { "key": "ar", "values": ["4:7"] },
+      { "key": "ar", "values": ["3:4"] },
       { "key": "chaos", "values": [0, 50] }
     ]
   }
