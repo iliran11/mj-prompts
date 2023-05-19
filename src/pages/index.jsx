@@ -1,7 +1,7 @@
 import React from "react";
 import db from "../db.json";
 import { getCombinations } from "../promptGenerator/utils";
-import Idea from "./idea";
+import Idea from "../idea";
 
 export default function Home(props) {
   return (
@@ -21,7 +21,7 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const ideas = db.map((x) => {
     return {
       title: x.title,
