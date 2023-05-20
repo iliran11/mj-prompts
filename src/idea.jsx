@@ -55,7 +55,7 @@ const Idea = (props) => {
               {comb.map((x) => {
                 return (
                   <li key={x.key} className="row">
-                    <span className="key">{x.key}: </span>
+                    <span className="key">{x.key} </span>
                     <span>{x.value}</span>
                   </li>
                 );

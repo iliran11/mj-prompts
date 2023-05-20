@@ -18,14 +18,15 @@ body {
 }
 .card {
   padding: 10px;
-  background-color: #0047ac;
+  background-color: white;
   border-radius: 6px;
-  color: white;
+  color: black;
   cursor: pointer;
+  border: 1px solid #0047ac;
 }
 
 .key {
-  color: #ffd301;
+  color: #0047ac;
   font-weight: 700;
 }
 
@@ -81,4 +82,5 @@ select {
 
 ul {
   padding: 0;
+  list-style-type: none
 }
