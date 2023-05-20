@@ -8,6 +8,11 @@ const Idea = (props) => {
     });
     navigator.clipboard.writeText(result);
   };
+  const [clickedRow, setClickedRow] = React.useState(null);
+  const onClick = (comb, i) => () => {
+    setClickedRow(i);
+    copy(comb);
+  };
   return (
     <>
       <div></div>
@@ -22,12 +27,17 @@ const Idea = (props) => {
         </thead>
         <tbody>
           {props.combinations.map((comb, i) => (
-            <tr key={i}>
-              <td onClick={() => copy(comb)} className="copy">
-                {i}
-              </td>
+            <tr
+              key={i}
+              onClick={onClick(comb, i)}
+              className={`row${i === clickedRow ? " animate" : ""}`}
+              onAnimationEnd={() => {
+                setClickedRow(null);
+              }}
+            >
+              <td className="copy">{i}</td>
               {comb.map((variant) => (
-                <td key={variant}>{variant.value}</td>
+                <td key={variant.value}>{variant.value}</td>
               ))}
             </tr>
           ))}
