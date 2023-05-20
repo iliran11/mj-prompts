@@ -9,11 +9,7 @@
       "${color1}",
       "decorative relief, eiko ojala, dreamy and romantic compositions",
       "tang yau hoong,",
-      "${color2}",
-      "--ar",
-      "${ar}",
-      "--c",
-      "${chaos}"
+      "${color2}"
     ],
     "variants": [
       {
@@ -38,9 +34,7 @@
       {
         "key": "color2",
         "values": ["Green and orange", "sage and blush", "lavender and Gray"]
-      },
-      { "key": "ar", "values": ["3:4"] },
-      { "key": "chaos", "values": [0, 50] }
+      }
     ]
   }
 ]

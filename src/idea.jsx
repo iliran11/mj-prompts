@@ -1,48 +1,69 @@
 import React from "react";
 
+const paramsDb = [
+  { key: "ar", values: ["4:3"] },
+  { key: "chaos", values: ["0", "50"] },
+];
+const initialState = {};
+paramsDb.forEach((x) => {
+  initialState[x.key] = x.values[0];
+});
+
 const Idea = (props) => {
-  const copy = (variants) => {
+  const [parameters, setParameters] = React.useState(initialState);
+  const onCopy = (value, i) => {
+    console.log("hiiii");
     let result = props.basePrompt;
-    variants.forEach((v) => {
+    value.forEach((v) => {
       result = result.replace(`$\{${v.key}}`, v.value);
+    });
+    paramsDb.forEach((p) => {
+      result = `${result} --${p.key} ${parameters[p.key]}`;
     });
     navigator.clipboard.writeText(result);
   };
-  const [clickedRow, setClickedRow] = React.useState(null);
-  const onClick = (comb, i) => () => {
-    setClickedRow(i);
-    copy(comb);
+  const onParamsChange = (key) => (e) => {
+    setParameters((prev) => {
+      return { ...prev, [key]: e.target.value };
+    });
   };
   return (
     <>
-      <div></div>
-      <table key={props.slug}>
-        <thead>
-          <tr>
-            <th>#</th>
-            {props.combinations[0].map((x) => (
-              <th key={x.key}>{x.key}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {props.combinations.map((comb, i) => (
-            <tr
+      <h3>Parameters</h3>
+      <div className="params">
+        {paramsDb.map((p) => (
+          <div key={p.key} className="select-group">
+            <label>{p.key}</label>
+            <select onChange={onParamsChange(p.key)}>
+              {p.values.map((v) => (
+                <option key={v.key}>{v}</option>
+              ))}
+            </select>
+          </div>
+        ))}
+      </div>
+      <ul className="idea">
+        {props.combinations.map((comb, i) => {
+          return (
+            <ul
               key={i}
-              onClick={onClick(comb, i)}
-              className={`row${i === clickedRow ? " animate" : ""}`}
-              onAnimationEnd={() => {
-                setClickedRow(null);
+              className="card"
+              onClick={() => {
+                onCopy(comb, i);
               }}
             >
-              <td className="copy">{i}</td>
-              {comb.map((variant) => (
-                <td key={variant.value}>{variant.value}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              {comb.map((x) => {
+                return (
+                  <li key={x.key} className="row">
+                    <span className="key">{x.key}: </span>
+                    <span>{x.value}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          );
+        })}
+      </ul>
     </>
   );
 };
