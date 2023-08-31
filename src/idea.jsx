@@ -12,7 +12,6 @@ paramsDb.forEach((x) => {
 const Idea = (props) => {
   const [parameters, setParameters] = React.useState(initialState);
   const onCopy = (value) => {
-    console.log("hiiii");
     let result = props.basePrompt;
     value.forEach((v) => {
       result = result.replace(`$\{${v.key}}`, v.value);
